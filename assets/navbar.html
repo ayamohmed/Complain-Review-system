@@ -1,0 +1,83 @@
+<style>
+    
+nav {
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  background: #0b090a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "system-ui", sans-serif;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 10vh; /* Ezz-edits VH means View Height its more responsive on another devices */
+  z-index: 9999; /* Ezz-edits so it's always on top */
+}
+.navs {
+  flex: 1;
+  text-align: right;
+  margin-right: 3%;
+}
+.navs ul li:hover {
+  z-index: 2;
+  transform: scale(1.1); /* Ezz-edits lower the scale so it's not too big */
+}
+.navs ul li {
+  list-style: none;
+  display: inline-block;
+  position: relative;
+  padding: 3px 12px;
+  font-weight: 500;
+  font-weight: bold;
+}
+.navs ul li a {
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  font-weight: 400px;
+}
+.navs ul li a .fas {
+  font-size: 33px;
+  cursor: pointer;
+}
+.navs ul li a:hover {
+  color: #e6b106;
+}
+.r {
+  color: #e6b106;
+}
+.logo {
+  color: white;
+  font-family: "Satisfy", cursive;
+  font-weight: bolder;
+  position: relative;
+  left: 110px;
+  font-size: 65px;
+  margin-top: 2px;
+}
+@media  (max-width: 762px) {
+  .navs ul li {
+    display: block;
+  }
+  .navs ul li a {
+    font-size: 15px;
+  }
+}
+</style>
+<nav>
+    <p class="logo"><span class="r">R</span>C</p>
+    <div class="navs">
+      <ul>
+        <li><a href="index.php"> Home </a></li>
+        <li><a href="review.php"> Review </a></li>
+        <li><a href="comp.php"> Complaint </a></li>
+        <li><a href="clothes.html"> Comparison </a></li>
+        <li><a href="contactus.html"> Contact Us </a></li>
+        <li><a href="login.php"> Log in </a></li>
+        <li>
+          <a href="profile.php"> <i class="fas fa-user-circle"></i></a>
+        </li>
+      </ul>
+    </div>
+  </nav>

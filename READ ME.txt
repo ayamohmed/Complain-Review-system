@@ -1,0 +1,25 @@
+1- Organized the folder structure
+2- changed home.html to index.html because (index.html page is the default page shown on a website if no other page is specified when a visitor requests the site)
+3- UI wise you can't use too many fonts it's not optimal 
+4- I suggest you make a logo instead of writing RC in Nav try this site ( https://www.canva.com/create/logos/ )
+5- PLEASE DON'T USE POSITION ABSOLUTE  ( Not Dynamic )
+6- Complains image (https://ibb.co/8BWtvgn) must be changed (Sad faces make the users not comfortable)  try something like this (https://www.flaticon.com/free-icon/meeting_10219680?term=argument&page=1&position=14&origin=search&related_id=10219680)
+7- the navbar needs to be responsive
+
+
+--------------------BACKEND--ERRORS---------------------------
+
+1_ [SignUp page] In the form, submit button doesn't have a name or type.
+2_ [SignUp page] In the form, if the form has an action attribute it cancels the php orders so removed it.
+3_ [Payment page] input 'Card Number' why it's hidden? 😂
+4_ [Payment page] radio buttons must have values so they echos in the database 
+5_ [Payment page] In the form, if the form has an action attribute it cancels the php orders so removed it.
+6_ [Complains page] In the form, The method should be POST because in the back-end we say POST['submit'] and the data be more secure.
+7_ [Complains page] In the form, if the form has an action attribute it cancels the php orders so removed it.
+8_ [Complains page] In the form, the complaint should be written in a text area for more space for the user
+9_ [Complains page] In the form, the serial number input must have a name  
+10_ [Complains page] In the Back-End, in the insert statement we use backticks ( ` ` ) in the table name not a single quote ( ' ' ) 
+11_ [Complains page] In the form, the radio buttons must have values.
+12_ [profile page] In the Back-End, the JOIN statement should be lEFT JOIN to get all the values and get null from the second table.
+13_ [profile page] In the profile card, Span doesn't have values we write content between the tags
+

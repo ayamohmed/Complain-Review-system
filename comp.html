@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="comp.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Roboto:wght@300&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Castoro+Titling&family=Raleway:wght@100&display=swap"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <?php
+    include('complaint.php');
+    
+
+    ?>
+    <div class="container1" id="blur">
+      <header>
+        <nav>
+          <p class="logo">R<span>C</span></p>
+
+          <div class="navs">
+            <ul>
+              <li><a href="index.php"> Home</a></li>
+              <li><a href="rev2.php"> Review</a></li>
+              <li><a href="comp.php"> Complaint</a></li>
+              <li><a href="grocries.html"> Comparison </a></li>
+              <li><a href="contactus.php"> Contact Us</a></li>
+              <li><a href="login.php"> Log In</a></li>
+              <li>
+                <a href="profile.php"> <i class="fas fa-user-circle"></i></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <p class="comp-paragraph">
+          If You Have a Problem with One of These Companies Which are in Our
+          drop Down Menu , <br />We Will Be The Mediator To Solve This Problem
+          With The company , <br />
+          seek To Solve It In An Easy Manner .
+        </p>
+        <div class="comp-icon"><i class="fas fa-check-double fa-lg"> </i></div>
+        <div class="comp-form">
+          <h1 class="text-center">Your Complaint <br /></h1>
+          <small
+            class="text-center d-block"
+            style="font-size: 15px; color: #e6b106">
+            Help us to solve your problem by leaving your complaint here.</small
+          >
+
+          <hr />
+          <form method="post" class="com-form" style="height: 650px">
+            <div class="input-group">
+              <label class="form-label" for="num" style="margin-left: 25px"
+                >Serial number :
+              </label>
+              <input
+                type="numbers"
+                class="comp-select"
+                placeholder="845624224"
+                id="num"
+                name="num"
+                style="
+                  width: 145px;
+                  height: 37px;
+                  text-align: center;
+                  margin-left: 12px;
+                " />
+              <label class="form-label" for="app" style="margin-left: 10px">
+                Company name :</label
+              >
+              <select
+                class="comp-select"
+                name="Application"
+                id="app"
+                style="width: 165px; height: 55px; text-align: center">
+                <option value="noon">X-Company</option>
+                <option value="noon">Y-Company</option>
+                <option value="noon">H-Company</option>
+                <option value="noon">J-Company</option>
+                <option value="noon">P-Company</option>
+                <option value="noon">R-Company</option>
+                <option value="noon">A-Company</option>
+                <option value="noon">V-Company</option>
+                <option value="noon">R-Company</option>
+                <option value="noon">L-Company</option>
+              </select>
+              <hr />
+            </div>
+            <div class="input-group">
+              <label class="form-label" for="date" style="margin-left: 25px">
+                Process Date :
+              </label>
+              <input
+                type="date"
+                name="date"
+                class="comp-select"
+                id="date"
+                style="text-align: center; width: 491px; margin-left: 25px" />
+              <hr />
+            </div>
+
+            <div class="input-group"></div>
+
+            <div class="input-group">
+              <textarea
+                name="complain"
+                class="comp-select"
+                id="comp-text-area"
+                placeholder="Type your Complaint Here"
+                style="max-width: 1000px; width: 655px; margin-left: 5px"
+                rows="10"></textarea>
+            </div>
+            <div class="input-group">
+              <label class="form-label">Complaint Type : </label>
+              <div class="input-group">
+                <input
+                  type="radio"
+                  name="type"
+                  value="basic"
+                  class="radio"
+                  id="type1"
+                  checked
+                  style="margin-left: -13px" />
+                <label class="form-label" for="type1" style="color: #e6b106"
+                  >Basic</label
+                >
+
+                <div style="width: 100%"></div>
+                <input
+                  type="radio"
+                  name="type"
+                  class="radio"
+                  value="premium"
+                  id="type2" />
+                <label class="form-label" for="type2" style="color: #e6b106"
+                  >Premium
+                </label>
+              </div>
+            </div>
+            <small class="text-center d-block"
+              >Know more about the premium
+              <a href="premium.html" class="policy"> Policy</a>.</small
+            >
+            <hr />
+
+            <button
+              type="submit"
+              class="btn d-block"
+              name="btn"
+              onclick="alert('your complaint has been submitted wait for our verification.')">
+              Submit
+            </button>
+          </form>
+        </div>
+        <footer>
+          <div class="footer">
+            <div class="col1">
+              <h3>Services :</h3>
+              <a href="rev2.php"> <h4>Review</h4></a>
+              <a href="comp.php"> <h4>Complaint</h4></a>
+              <a href="clothes.html"> <h4>Comparison</h4></a>
+              <h4>Electronic Points</h4>
+            </div>
+
+            <div class="col2">
+              <h3>Contact info :</h3>
+              <a href="mailto:rcyoucarewerate@gmail.com">
+                <h4>rcyoucarewerate@gmail.com</h4></a
+              >
+              <a href="tel:+02 01128872210"><h4>tel :+02 01128872210</h4></a>
+              <div class="rate-btn">
+                <button class="btn" type="button" onclick="toggle11()">
+                  Feedback
+                </button>
+              </div>
+            </div>
+
+            <div class="col3">
+              <h3>Social :</h3>
+              <a
+                href="https://www.facebook.com/profile.php?id=100091461590240&mibextid=ZbWKwL"
+                ><h4>Facebook</h4></a
+              >
+              <a href="https://instagram.com/ratecomplaint?igshid=ZDdkNTZiNTM=">
+                <h4>Instagram</h4></a
+              >
+              <a
+                href="https://twitter.com/RC4639544536748?t=mGxuJVHTmzi0Q5SjBZXDhQ&s=09"
+                ><h4>Twitter</h4></a
+              >
+              <a href="https://www.linkedin.com/in/rate-care-766762269"
+                ><h4>Linkedin</h4></a
+              >
+            </div>
+            <div class="col4">
+              <h3>MY Account :</h3>
+              <a href="sign.php"> <h4>SignIn/Register</h4></a>
+              <a href="profile.php"><h4>My Reviews</h4></a>
+              <a href="profile.php"><h4>My Complaints</h4></a>
+              <a href="profile.php"> <h4>My points</h4></a>
+            </div>
+          </div>
+          <hr class="hr2" />
+          <h4 class="copy">&copy;Created by BIS 2023 Seniors Team</h4>
+        </footer>
+      </header>
+    </div>
+    <div class="auto-popup" id="popup9">
+      <form class="auto-form" method="post">
+        <h2>Your feedback</h2>
+        <input
+          class="auto"
+          type="textarea"
+          placeholder="type your feedback here"
+          name="feedbackText"
+          id="" />
+        <br />
+        <div class="stars">
+          <i class="fa fa-star fa-4x" aria-hidden="true"></i>
+          <i class="fa fa-star fa-4x" aria-hidden="true"></i>
+          <i class="fa fa-star fa-4x" aria-hidden="true"></i>
+          <i class="fa fa-star fa-4x" aria-hidden="true"></i>
+          <i class="fa fa-star fa-4x" aria-hidden="true"></i>
+        </div>
+
+        <div class="boxx">
+          <div class="del" style="display: none"></div>
+        </div>
+        <button id="close" name="feedback">submit</button>
+      </form>
+    </div>
+
+    <script>
+      function toggle11() {
+        var blur = document.getElementById('blur');
+        blur.classList.toggle('active');
+        var popup9 = document.getElementById('popup9');
+        popup9.classList.toggle('active');
+      }
+
+      var btn = document.getElementsByClassName('fa fa-star fa-4x');
+      var del = document.querySelector('.del');
+      var box = document.querySelector('.box');
+      var span = document.querySelector('span');
+      var mesg = [
+        'Very dissatisfied',
+        'Unsatisfied',
+        'Average',
+        'Satisfied ',
+        'Very satisfied',
+      ];
+      var star = (overStar = 0);
+
+      for (let i = 0; i < btn.length; i++) {
+        btn[i].onclick = function () {
+          var index = i + 1;
+          overStar = i + 1;
+          var reviseMesg = mesg[i];
+          var scores = index + '\t';
+          span.innerHTML = '<strong>' + scores + '</strong>' + reviseMesg;
+        };
+
+        btn[i].addEventListener('mouseover', function () {
+          var index = i + 1;
+          click(index);
+          del.style.display = 'block';
+          var scores = index;
+          var reviseMesg = mesg[i];
+          del.innerHTML = '<em>' + scores + mesg[i] + '</em>' + reviseMesg;
+        });
+        btn[i].onmouseout = function () {
+          click();
+          del.style.display = 'none';
+        };
+      }
+
+      function click(over) {
+        star = over || overStar;
+        for (let k = 0; k < btn.length; k++) {
+          if (k < star) {
+            btn[k].style.color = '#e6b106';
+          } else {
+            btn[k].style.color = '#cccccc';
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

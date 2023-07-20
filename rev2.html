@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+    <title>Document</title>
+    <link rel="stylesheet" href="review.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Roboto:wght@300&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Castoro+Titling&family=Raleway:wght@100&display=swap" rel="stylesheet">
+
+  
+  </head>
+  <body>
+    <?php
+    include('rev.php');
+      
+    if(isset($_GET["company"])){
+      $company=$_GET["company"];
+      $q="SELECT * FROM `review` JOIN `user` ON `review`.`user_id`=`user`.`user_id` WHERE `company_name`LIKE '%{$company}%' ";
+      $query=mysqli_query($con,$q);
+    }
+
+    ?>
+       <div class="container1" id="blur">
+      <nav>
+        <P class="logo" >R<span class="c">C</span></P>
+      
+        <div class="navs">
+          <ul>
+              <li> <a href="index.php"> Home</a> </li>
+              <li> <a href="rev2.php"> Review</a> </li>
+              <li> <a href="comp.php"> Complaint</a> </li>
+              <li><a href="grocries.html"> Comparison </a></li>
+              <li> <a href="contactus.php"> Contact Us</a> </li>
+              <li> <a href="login.php"> Log In</a> </li>
+              <li> <a href="profile.php"> <i id="profilei" class="fas fa-user-circle" style="color: black
+              ;"></i></a> </li>
+          </ul>
+        </div>
+      </nav> </header>
+   <form method="post">
+<input type="search"  class="srch_box"  placeholder="search here" name="search">
+<button class="sh" > <i id="sh" class="fas fa-search " name="search"></i></button>
+</form>
+<div class="sponsers">
+ 
+<div> <a href="#"  onclick="toggle7()" > <img src="./assets/images/waffarha.png"  ></a></div>
+<div> <a href="#"  onclick="toggle3()"> <img src="./assets/images/noon.jpg" ></a></div>
+<div>  <a href="#" onclick="toggle2()" ><img src="./assets/images/marsool.jpg"></a></div>
+ <div ><a href="#" onclick="toggle4()" ><img src="./assets/images/defacto.png" ></a></div>
+<div  > <a href="#" onclick="toggle1()"  > <img src="./assets/images/jumia.png"></a></div>
+ 
+ <div ><a href="#" onclick="toggle5()"><img src="print.jpg" ></a></div>
+ 
+ <div ><a href="#" onclick="toggle6()" ><img src="hager.jpg" ></a></div>
+ <div ><a href="#" onclick="toggle()" ><img src="roo.jpg" ></a></div>
+ <div ><a href="#" onclick="toggle8()" ><img src="lamor.jpg" ></a></div>
+ 
+</div>
+      <div class="slider">
+        <div class="slides">
+
+        <?php if($q != ""){  foreach($query AS $value){?>
+
+<div id="slide-before">
+  <div class="prf">
+    <i class="fas fa-user-circle fa-xs" style="color:black"></i>
+  </div>
+  <div class="box">
+    <span> About : <?php echo $value['company_name'] ?> </span>
+  <p> Subject : <?php echo $value['comment'] ?> </p>
+  <small style="font-size:small;"> By : <?php echo $value['username'] ?></small>
+  </div>
+</div>  
+  
+<?php } } else { foreach($var1 AS $value){ ?> 
+  
+  
+<div id="slide-before">
+  <div class="prf">
+  <i class="fas fa-user-circle fa-xs" style="color:black"></i>
+
+  </div>
+  <div class="box">
+  <span> About : <?php echo $value['company_name'] ?> </span>
+  <p> Subject : <?php echo $value['comment'] ?> </p>
+  <small style="font-size:small;"> By : <?php echo $value['username'] ?></small>
+  </div>
+</div>  
+  <?php } } ?>
+</div>
+</div>
+<br> 
+
+   <div class="text">
+   <span> Now it's Your turn to Add your review </span><br>
+   <p> Please Don't hestitate and GO ON..  <br>
+    Increase Your Ponits and take the advantage NOW</p>
+    <i class="fas fa-check-double fa-lg" style="color: #e6b106;   animation-name: arrow;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;"></i>
+   
+   </div>
+      <div class="form">
+        <form method="post">
+       <label for="">Enter your review</label>
+            <input type="textarea" name="review" placeholder="Enter your review here" method="post"> <br>
+            <label for="">Application name</label> 
+            <input type="text" name="Application" id="app" placeholder="Enter Application Name" method="post"> <br>
+            
+
+            <button class="btn" type="submit" name="rev" >Add Review</button>
+           
+</form>
+        </div>
+        <footer>
+      <div class="footer">
+       <div class="col1">
+          <h3>Services :</h3>
+         <a href="rev2.php"> <h4>Review</h4></a>
+         <a href="comp.php">  <h4>Complaint</h4></a>
+         <a href="#">  <h4>Comparison</h4></a>
+          
+          <h4>Electronic Points</h4>
+        </div>
+
+        <div class="col2"> 
+          <h3>Contact info :</h3>
+        <a href="mailto:rcyoucarewerate@gmail.com">  <h4>rcyoucarewerate@gmail.com</h4></a>
+          <a href="tel:+02 01128872210"><h4>tel :+02 01128872210</h4></a>
+          <div class="rate-btn"><button class="btn" type="button" onclick="toggle11()"  >Feedback</button></div>
+        </div>
+
+        <div class="col3">
+          <h3>Social :</h3>
+          <a href="https://www.facebook.com/profile.php?id=100091461590240&mibextid=ZbWKwL"><h4>Facebook</h4></a>
+          <a href="https://instagram.com/ratecomplaint?igshid=ZDdkNTZiNTM="> <h4>Instagram</h4></a>
+          <a href="https://twitter.com/RC4639544536748?t=mGxuJVHTmzi0Q5SjBZXDhQ&s=09"><h4>Twitter</h4></a>
+          <a href="https://www.linkedin.com/in/rate-care-766762269"><h4>Linkedin</h4></a>
+        </div>
+        <div class="col4">
+          <h3>MY Account :</h3>
+         <a href="sign.php"> <h4>SignIn/Register</h4></a>
+          <a href="profile.php"><h4>My Reviews</h4></a>
+        <a href="profile.php"><h4>My Complaints</h4></a>
+         <a href="profile.php"> <h4>My points</h4></a>
+        </div>
+      <hr class="hr2" />
+      <h4 class="copy">&copy;Created by BIS 2023 Seniors Team</h4>
+    </footer>
+   
+      </div>
+      
+      <div id="popup1">
+<img class="photo" src="roo.jpg" >
+ <div  class="fc">
+  <a href="https://www.facebook.com/groups/1116705355658938/?ref=share&mibextid=NSMWBT">
+    <i class="fab fa-facebook fa-4x" style="color: #fff;" ></i>
+    </a>
+    <div class="ico">
+       
+    </div>
+ </div>
+ 
+<div class="insta">
+    <a href="https://instagram.com/roo_cosmetics_candles?igshid=MzRlODBiNWFlZA==">
+        <i  class="fab fa-instagram" style="color: #fff; font-size: 50px;"></i>
+    </a>
+     
+ </div>
+
+
+
+    <div class="container">
+    
+    <div class="grid-cell-1">
+       <a href="profile.php" style="text-decoration: none; color: black;">
+        <i class="fas fa-star fa-3x" style="color: #000205;"></i>
+        <h2>Your Reviews</h2>
+       </a>
+
+    </div>
+    <div class="grid-cell-2">
+       <a href="rev2.php?company=roo cosmetics " style="text-decoration: none; color: black;"> <i class="fas fa-pencil-alt fa-3x" style="color: #000000;"></i>
+        <h2>Review page</h2></a>
+    </div>
+
+
+    <div class="grid">
+    <a href="#">
+    <i class="fas fa-chart-bar fa-3x" style="color: #000000;"></i>
+     <h2>Number of visits</h2>
+    </a>
+    </div>
+  
+    <div class="grid-cell-5">
+    <i class="fas fa-flag-checkered fa-3x" style="color: #ffffff;"></i> 
+
+    <h1>4.9 <br>
+        Avg Rating
+    </h1>
+    </div>
+        <a href="#" class="close" onclick="toggle()">&times;</a>
+    </div>
+  </div>
+      <div id="popup10">
+<img class="photo" src="lamor.jpg" >
+ <div  class="fc">
+  <a href="https://www.facebook.com/groups/412236353938344/?ref=share&mibextid=NSMWBT">
+    <i class="fab fa-facebook fa-4x" style="color: #fff;" ></i>
+    </a>
+    <div class="ico">
+       
+    </div>
+ </div>
+ 
+<div class="insta">
+    <a href="https://instagram.com/lamour.egy?igshid=MzRlODBiNWFlZA==">
+        <i  class="fab fa-instagram" style="color: #fff; font-size: 50px;"></i>
+    </a>
+     
+ </div>
+
+
+
+    <div class="container">
+    
+    <div class="grid-cell-1">
+       <a href="profile.php" style="text-decoration: none; color: black;">
+        <i class="fas fa-star fa-3x" style="color: #000205;"></i>
+        <h2>Your Reviews</h2>
+       </a>
+
+    </div>
+    <div class="grid-cell-2">
+       <a href="rev2.php?company=lamour" style="text-decoration: none; color: black;"> <i class="fas fa-pencil-alt fa-3x" style="color: #000000;"></i>
+        <h2>Review page</h2></a>
+    </div>
+
+
+    <div class="grid">
+    <a href="#">
+    <i class="fas fa-chart-bar fa-3x" style="color: #000000;"></i>
+     <h2>Number of visits</h2>
+    </a>
+    </div>
+  
+    <div class="grid-cell-5">
+    <i class="fas fa-flag-checkered fa-3x" style="color: #ffffff;"></i> 
+
+    <h1>4.9 <br>
+        Avg Rating
+    </h1>
+    </div>
+        <a href="#" class="close" onclick="toggle8()">&times;</a>
+    </div>
+  </div>
+  
+   <div id="popup2">
+<img class="photo" src="./assets/images/jumia.png" >
+ <div  class="fc">
+  <a href="https://www.facebook.com/JumiaEgypt/?mibextid=ZbWKwL">
+    <i class="fab fa-facebook fa-4x" style="color: #fff;" ></i>
+    </a>
+    <div class="ico">
+      
+    </div>
+ </div>
+ 
+<div class="go">
+    <a href="https://www.google.com/url?sa=t&source=web&rct=j&url=https://www.jumia.com.eg/&ved=2ahUKEwjD2-aRq97-AhVjVKQEHcuOD6AQFnoECAkQAQ&usg=AOvVaw2VQeBV5RPpuGpr_tZgoe43">
+        <i class="fab fa-google fa-4x" style="color: #fff;"></i>
+    </a>
+       
+ </div>
+    <div class="container">
+    
+    <div class="grid-cell-1">
+       <a href="profile.php" style="text-decoration: none; color: black;">
+        <i class="fas fa-star fa-3x" style="color: #000205;"></i>
+      
+    <h2>your reviews</h2></a>
+    </div>
+    <div class="grid-cell-2">
+      <a href="rev2.php?company=jumia" style="text-decoration: none; color: #000000;">
+        <i class="fas fa-pencil-alt fa-3x" style="color: #000000;"></i>
+        <h2>Review page</h2></a>
+    </div>
+    <div class="grid">
+   <a href="https://www.statista.com/statistics/1190032/visits-on-jumia-on-selected-domains-in-africa/">
+   <i class="fas fa-chart-bar fa-3x" style="color: #000000;"></i>
+      <h2>number of visits</h2> 
+   </a>
+    </div>
+    
+    <div class="grid-cell-5">
+    <i class="fas fa-flag-checkered fa-3x" style="color: #ffffff;"></i> 
+    <h1>4.9 <br>
+        Avg Rating
+    </h1>
+    </div>
+        <a href="#" class="close" onclick="toggle1()">&times;</a>
+    </div>
+  </div>  
+  <div id="popup3">
+<img class="photo" src="./assets/images/marsool.jpg" >
+ <div  class="fc">
+  <a href="https://www.facebook.com/Mrsoolegypt1/?mibextid=ZbWKwL">
+    <i class="fab fa-facebook fa-4x" style="color: #fff;" ></i>
+    </a>
+    <div class="ico">
+      
+    </div>
+ </div>
+ 
+<div class="go">
+    <a href="https://www.google.com/url?sa=t&source=web&rct=j&url=https://mrsool.co/&ved=2ahUKEwjTt9TSqt7-AhUeaqQEHWjBD28QFnoECAkQAQ&usg=AOvVaw3SseOSZvJWq0N4ncqmGgoh">
+        <i class="fab fa-google fa-4x" style="color: #fff;"></i>
+    </a>
+      
+ </div>
+    <div class="container">
+    
+    <div class="grid-cell-1">
+       <a href="profile.php" style="text-decoration: none; color: black;">
+        <i class="fas fa-star fa-3x" style="color: #000205;"></i>
+       </a>
+    <h2>your reviews</h2>
+    </div>
+    <div class="grid-cell-2">
+      <a href="rev2.php?company=mrsool" style="text-decoration: none; color: #000000;">
+        <i class="fas fa-pencil-alt fa-3x" style="color: #000000;"></i>
+        <h2>Review page</h2></a>
+    </div>
+    <div class="grid">
+     <a href="https://www.similarweb.com/website/mrsool.co/">
+     <i class="fas fa-chart-bar fa-3x" style="color: #000000;"></i>
+      <h2>number of visits</h2> 
+     </a>
+    </div>
+   
+    <div class="grid-cell-5">
+    <i class="fas fa-flag-checkered fa-3x" style="color: #ffffff;"></i> 
+
+
+    <h1>4.9 <br>
+        Avg Rating
+    </h1>
+    </div>
+        <a href="#" class="close" onclick="toggle2()">&times;</a>
+    </div>
+  </div>  
+    <div id="popup4">
+<img class="photo" src="./assets/images/noon.jpg" >
+ <div  class="fc">
+  <a href="https://www.facebook.com/noon/?mibextid=ZbWKwL">
+    <i class="fab fa-facebook fa-4x" style="color: #fff;" ></i>
+    </a>
+    <div class="ico">
+    
+    </div>
+ </div>
+ 
+<div class="go">
+    <a href="https://www.google.com/url?sa=t&source=web&rct=j&url=https://www.noon.com/egypt-en/&ved=2ahUKEwj2qP_3q97-AhWyVaQEHWYAD18QFnoECAgQAQ&usg=AOvVaw1wds62O0kNjoqN6X8ZSloc">
+        <i class="fab fa-google fa-4x" style="color: #fff;"></i>
+    </a>
+        
+ </div>
+    <div class="container">
+    
+    <div class="grid-cell-1">
+       <a href="profile.php" style="text-decoration: none; color: black;">
+        <i class="fas fa-star fa-3x" style="color: #000205;"></i>
+       </a>
+    <h2>your reviews</h2>
+    </div>
+    <div class="grid-cell-2">
+      <a href="rev2.php?company=noon" style="text-decoration: none; color: #000000;">
+        <i class="fas fa-pencil-alt fa-3x" style="color: #000000;"></i>
+        <h2>Review page</h2></a>
+    </div>
+    <div class="grid">
+    <a href="https://www.similarweb.com/website/noon.com/#overview/">
+    <i class="fas fa-chart-bar fa-3x" style="color: #000000;"></i>
+      <h2>number of visits</h2>  
+    </a>
+    </div>
+   
+    <div class="grid-cell-5">
+    <i class="fas fa-flag-checkered fa-3x" style="color: #ffffff;"></i> 
+
+
+    <h1>4.9 <br>
+        Avg Rating
+    </h1>
+    </div>
+        <a href="#" class="close" onclick="toggle3()">&times;</a>
+    </div>
+  </div>
+  <div id="popup5">
+<img class="photo" src="./assets/images/defacto.png" >
+ <div  class="fc">
+  <a href="https://www.google.com.eg/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiZp-ri6-P-AhUGLsAKHVaHDjgQFnoECA0QAQ&url=https%3A%2F%2Fwww.facebook.com%2Fgroups%2Fdefactomasr%2F&usg=AOvVaw30lHKTkySkFTF4xu6JD6EY">
+    <i class="fab fa-facebook fa-4x" style="color: #fff;" ></i>
+    </a>
+    <div class="ico">
+      
+    </div>
+ </div>
+ 
+<div class="go">
+    <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiIiojY6-P-AhWN0O0KHRf2ASgYABACGgJkZw&ae=2&ohost=www.google.com.eg&cid=CAESa-D2ZIVZYvy6_kkVguZnOD4gL13vV1kiVv-0KxZRp-s8lUP9NGO197lhY9OrL_3Q2L30cWcXea6ZUzrTD0QswNLpdgPBau5SHgu9cQCw6iHOK54UAFX_P9AOToWAoFE6Wp6Z-ou4-vZZ2vQS&sig=AOD64_3TlQw4NPRU0ng7migFkueNHh4_oQ&q&adurl&ved=2ahUKEwjP84HY6-P-AhVHfMAKHbOUA-MQ0Qx6BAgJEAE">
+        <i class="fab fa-google fa-4x" style="color: #fff;"></i>
+    </a>
+       
+ </div>
+    <div class="container">
+    
+    <div class="grid-cell-1">
+       <a href="profile.php" style="text-decoration: none; color: black;">
+        <i class="fas fa-star fa-3x" style="color: #000205;"></i>
+       </a>
+    <h2>your reviews</h2>
+    </div>
+    <div class="grid-cell-2">
+      <a href="rev2.php?company=defacto" style="text-decoration: none; color: #000000;">
+        <i class="fas fa-pencil-alt fa-3x" style="color: #000000;"></i>
+        <h2>Review page</h2></a>
+    </div>
+    <div class="grid">
+    <a href="https://www.similarweb.com/website/defacto.com/#overview"><i class="fas fa-chart-bar fa-3x" style="color: #000000;"></i>
+      <h2>number of visits</h2>  </a>
+    </div>
+    
+    <div class="grid-cell-5">
+    <i class="fas fa-flag-checkered fa-3x" style="color: #ffffff;"></i> 
+
+    <h1>4.9 <br>
+        Avg Rating
+    </h1>
+    </div>
+        <a href="#" class="close" onclick="toggle4()">&times;</a>
+    </div>
+  </div>
+    
+  <div id="popup6">
+<img class="photo" src="print.jpg" >
+ <div  class="fc">
+  <a href="https://m.facebook.com/profile.php?id=100076986147505&mibextid=LQQJ4d">
+    <i class="fab fa-facebook fa-4x" style="color: #fff;" ></i>
+    </a>
+    <div class="ico">        
+    </div>
+ </div>
+ 
+<div class="insta">
+    <a href="https://instagram.com/printology2022?igshid=MzRlODBiNWFlZA==">
+        <i  class="fab fa-instagram" style="color: #fff; font-size: 50px;"></i>
+    </a>
+     
+ </div>
+    <div class="container">
+    
+    <div class="grid-cell-1">
+       <a href="profile.php" style="text-decoration: none; color: #000000;">
+        <i class="fas fa-star fa-3x" style="color: #000205;"></i>
+       </a>
+    <h2>your reviews</h2>
+    </div>
+    <div class="grid-cell-2">
+      <a href="rev2.php?company=printology" style="text-decoration: none; color: #000205;">
+        <i class="fas fa-pencil-alt fa-3x" style="color: #000000;"></i>
+        <h2>Review page</h2></a>
+    </div>
+    <div class="grid">
+    <a href="#">
+    <i class="fas fa-chart-bar fa-3x" style="color: #000000;"></i>
+      <h2>number of visits</h2>  
+    </a>
+    </div>
+   
+    <div class="grid-cell-5">
+    <i class="fas fa-flag-checkered fa-3x" style="color: #ffffff;"></i> 
+
+
+    <h1>4.9 <br>
+        Avg Rating
+    </h1>
+    </div>
+        <a href="#" class="close" onclick="toggle5()">&times;</a>
+    </div>
+  </div>
+    
+  <div id="popup7">
+<img class="photo" src="hager.jpg" >
+ <div  class="fc">
+  <a href="https://www.facebook.com/HagarGallery/?mibextid=ZbWKwL">
+    <i class="fab fa-facebook fa-4x" style="color: #fff;" ></i>
+    </a>
+    <div class="ico">
+           </div>
+ </div>
+ 
+<div class="insta">
+    <a href="https://instagram.com/hagar__gallery?igshid=MzRlODBiNWFlZA==">
+        <i  class="fab fa-instagram" style="color: #fff;"></i>
+    </a>
+     
+ </div>
+    <div class="container">
+    
+    <div class="grid-cell-1">
+       <a href="proile.php" style="text-decoration: none; color: #000000;" >
+        <i class="fas fa-star fa-3x" style="color: #000205;"></i>
+       </a>
+    <h2>your reviews</h2>
+    </div>
+    <div class="grid-cell-2">
+      <a href="rev2.php?company=hagargallery" style="text-decoration: none; color: #000000;" >
+        <i class="fas fa-pencil-alt fa-3x" style="color: #000000;"></i>
+        <h2>Review page</h2>
+    </div>
+    <div class="grid">
+        <a href="#">
+        <i class="fas fa-chart-bar fa-3x" style="color: #000000;"></i>
+      <h2>number of visits</h2>
+        </a>
+    </div>
+    <div class="grid-cell-5">
+    <i class="fas fa-flag-checkered fa-3x" style="color: #ffffff;"></i> 
+
+    <h1>4.9 <br>
+        Avg Rating
+    </h1>
+    </div>
+        <a href="#" class="close" onclick="toggle6()">&times;</a>
+    </div>
+  </div>
+    
+  <div id="popup8">
+<img class="photo" src="./assets/images/waffarha.png" >
+ <div  class="fc">
+  <a href="https://www.google.com.eg/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjsoIrA7OP-AhWbiFwKHT7LDU4QFnoECAkQAQ&url=https%3A%2F%2Fwaffarha.com%2Fen&usg=AOvVaw28XrojYhwXDYdVg5bHEiHz">
+    <i class="fab fa-facebook fa-4x" style="color: #fff;" ></i>
+    </a>
+    <div class="ico">
+      
+    </div>
+ </div>
+ 
+<div class="go">
+    <a href="https://www.google.com.eg/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjDsd726-P-AhUaiFwKHXcXBAkQFnoECBcQAQ&url=https%3A%2F%2Fwww.facebook.com%2FWaffarha%2F&usg=AOvVaw21KYAFvLVRCDJqjQDtbV5u">
+        <i class="fab fa-google fa-4x" style="color: #fff;"></i>
+    </a>
+    
+ </div>
+    <div class="container">
+    
+    <div class="grid-cell-1">
+      <a href="proile.php" style="text-decoration: none; color: #000000;" >
+        <i class="fas fa-star fa-3x" style="color: #000205;"></i>
+       </a>
+    <h2>your reviews</h2>
+    </div>
+    <div class="grid-cell-2">
+      <a href="rev2.php?company=waffarha" style="text-decoration: none; color: #000000;" >
+        <i class="fas fa-pencil-alt fa-3x" style="color: #000000;"></i>
+        <h2>Review page</h2></a>
+    </div>
+
+    <div class="grid">
+      <a href="https://www.similarweb.com/website/waffarha.com/">
+      <i class="fas fa-chart-bar fa-3x" style="color: #000000;"></i>
+      <h2>number of visits</h2>
+      </a>
+    </div>
+    
+    <div class="grid-cell-5">
+    <i class="fas fa-flag-checkered fa-3x" style="color: #ffffff;"></i> 
+
+    <h1>4.9 <br>
+        Avg Rating
+    </h1>
+    </div>
+        <a href="#" class="close" onclick="toggle7()">&times;</a>
+    </div>
+  </div>
+  <div class="auto-popup" id="popup9">
+  <form  class="auto-form" method="post">
+     <h2>Your feedback</h2>
+      <input class="auto" type="textarea" placeholder="type your feedback here" name="feedbackText" id=""> <br>
+  <div class="stars">
+     <i class="fa fa-star  fa-4x" aria-hidden="true"></i>
+     <i class="fa fa-star  fa-4x" aria-hidden="true"></i>
+     <i class="fa fa-star  fa-4x" aria-hidden="true"></i>
+     <i class="fa fa-star  fa-4x" aria-hidden="true"></i>
+     <i class="fa fa-star  fa-4x" aria-hidden="true"></i>
+ </div>
+
+  <div class="boxx">
+          <div class="del" style="display:none"></div>
+  </div>
+  <button id="close" name="feedback">submit</button>
+  </form>
+</div>
+    
+  <script> 
+  function toggle(){
+    var blur = document.getElementById('blur');
+    blur.classList.toggle('active');
+    var popup1 = document.getElementById('popup1');
+    popup1.classList.toggle('active');
+  }
+  function toggle1(){
+    var blur = document.getElementById('blur');
+    blur.classList.toggle('active');
+    var popup2 = document.getElementById('popup2');
+    popup2.classList.toggle('active');
+  }
+  function toggle2(){
+    var blur = document.getElementById('blur');
+    blur.classList.toggle('active');
+    var popup3 = document.getElementById('popup3');
+    popup3.classList.toggle('active');
+  }
+  function toggle3(){
+    var blur = document.getElementById('blur');
+    blur.classList.toggle('active');
+    var popup4 = document.getElementById('popup4');
+    popup4.classList.toggle('active');
+  }
+  function toggle4(){
+    var blur = document.getElementById('blur');
+    blur.classList.toggle('active');
+    var popup5 = document.getElementById('popup5');
+    popup5.classList.toggle('active');
+  }
+  function toggle5(){
+    var blur = document.getElementById('blur');
+    blur.classList.toggle('active');
+    var popup6 = document.getElementById('popup6');
+    popup6.classList.toggle('active');
+  }
+  function toggle6(){
+    var blur = document.getElementById('blur');
+    blur.classList.toggle('active');
+    var popup7 = document.getElementById('popup7');
+    popup7.classList.toggle('active');
+  }
+  function toggle7(){
+    var blur = document.getElementById('blur');
+    blur.classList.toggle('active');
+    var popup8 = document.getElementById('popup8');
+    popup8.classList.toggle('active');
+  }
+  function toggle8(){
+    var blur = document.getElementById('blur');
+    blur.classList.toggle('active');
+    var popup10 = document.getElementById('popup10');
+    popup10.classList.toggle('active');
+  }
+  
+   function toggle11(){
+    var blur = document.getElementById('blur');
+    blur.classList.toggle('active');
+    var popup9 = document.getElementById('popup9');
+    popup9.classList.toggle('active');
+    
+  }
+
+
+
+  
+  var btn = document.getElementsByClassName('fa fa-star fa-4x');
+     var del = document.querySelector('.del');
+     var box = document.querySelector('.box');
+     var span = document.querySelector('span');
+     var mesg = [
+       'Very dissatisfied',
+       'Unsatisfied',
+       'Average',
+       'Satisfied ',
+       'Very satisfied',
+     ];
+     var star = (overStar = 0);
+     
+     for (let i = 0; i < btn.length; i++) {
+       btn[i].onclick = function () {
+         var index = i + 1;
+         overStar = i + 1;
+         var reviseMesg = mesg[i];
+         var scores = index + '\t';
+         span.innerHTML = '<strong>' + scores + '</strong>' + reviseMesg;
+       };
+     
+       btn[i].addEventListener('mouseover', function () {
+         var index = i + 1;
+         click(index);
+         del.style.display = 'block';
+         var scores = index;
+         var reviseMesg = mesg[i];
+         del.innerHTML = '<em>' + scores + mesg[i] + '</em>' + reviseMesg;
+       });
+       btn[i].onmouseout = function () {
+         click();
+         del.style.display = 'none';
+       };
+     }
+     
+     function click(over) {
+       star = over || overStar;
+       for (let k = 0; k < btn.length; k++) {
+         if (k < star) {
+           btn[k].style.color = '#e6b106';
+         } else {
+           btn[k].style.color = '#cccccc';
+         }
+       }
+       
+     }
+
+  </script>
+
+</body>
+  </html>

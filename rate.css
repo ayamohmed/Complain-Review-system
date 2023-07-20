@@ -1,0 +1,72 @@
+.auto-popup {
+  height: 350px;
+  width: 500px;
+  background-color: #fff;
+  border: black solid 1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  position: absolute;
+  transform: translate(-50%, 50%);
+  top: 150%;
+  left: 50%;
+  text-align: center;
+  font-size: 15px;
+  border-radius: 20px;
+}
+
+.auto {
+  position: absolute;
+  top: 150;
+  left: 20%;
+  height: 150px;
+  width: 300px;
+  border-radius: 30px;
+  border: 1px solid black;
+}
+i {
+  color: transparent;
+  cursor: pointer;
+  color: #cccccc;
+  margin-top: 27%;
+
+  height: 10px;
+  width: 55px;
+}
+
+.del {
+  width: 100px;
+  height: 20px;
+  background-color: white;
+  border: 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  border-radius: 10px;
+}
+
+span strong {
+  color: #e6b106;
+  padding: 0 30px;
+  font-family: sans-serif;
+}
+
+em {
+  color: #e6b106;
+  display: block;
+  font-family: sans-serif;
+  font-style: normal;
+}
+.auto-form button {
+  position: fixed;
+  top: 300px;
+  left: 200px;
+  width: 100px;
+  height: 40px;
+  background-color: #e6b106;
+  color: white;
+  border-style: none;
+  border-radius: 30px;
+}
+button:hover {
+  color: #e6b106;
+  background-color: white;
+}
